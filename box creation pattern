@@ -1,0 +1,15 @@
+def box(width, height, symbol):
+    """print a box made up of asterisks, or some other character.
+
+    width: width of box in characters, must be at least 2
+    height: height of box in lines, must be at least 2
+    symbol: a single character string used to draw the box edges
+    """
+    print(symbol * width) # print top edge of box
+
+    # print sides of box
+    for _ in range(height-2):
+        print(symbol + " " * (width-2) + symbol) 
+
+    print(symbol * width)
+    
