@@ -1,0 +1,20 @@
+cleaning data..
+# import pandas and load cancer data
+import pandas as pd
+df = pd.read_csv('cancer_data_means.csv')
+# check which columns have missing values with info()
+df.info()
+
+# use means to fill in missing values
+df.fillna(df.mean(), inplace = True)
+# confirm your correction with info()
+df.info()
+
+# check for duplicates in the data
+sum(df.duplicated())
+
+# drop duplicates
+df.drop_duplicates(inplace=True)
+
+# confirm correction by rechecking for duplicates in the data
+sum(df.duplicated())
