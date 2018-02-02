@@ -1,0 +1,24 @@
+import pandas as pd
+%matplot inline
+
+df_census =  pd.read_csv('census_income_data_csv')
+df_census.info()
+ #histogram creation
+ df_census.hist() #crowded data
+ OR
+ df_census.hist(figsize=(8,8));#semicolon suppress output
+ OR
+ df_census['age'].hist();#plotting for specific column
+ OR
+ df_census['age'].plot(kind='hist' OR 'pie'OR 'box');
+ df_census['education'].value_counts() #aggregate unique values in each column
+ OR
+ df_census['education'].value_counts().plot(kind='bar');
+ 
+ 
+ #scatterplots for relationships bw numerical values
+ pd.plotting.scatter_matrix(df_cancer,figsize=(15, 15));
+ 
+ #parameters with x y axis
+ df_cancer.plot(x='compactness', y='conacavity', kind='scatter')
+ 
