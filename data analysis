@@ -18,3 +18,22 @@ df.drop_duplicates(inplace=True)
 
 # confirm correction by rechecking for duplicates in the data
 sum(df.duplicated())
+
+COLUMN RENAMING
+# remove "_mean" from column names
+new_labels = []
+for col in df.columns:
+    if '_mean' in col:
+        new_labels.append(col[:-5])  # exclude last 6 characters
+    else:
+        new_labels.append(col)
+
+# new labels for our columns
+new_labels
+df.columns = new_labels
+
+# display first few rows of dataframe to confirm changes
+df.head()
+
+# save this for later
+df.to_csv('cancer_data_edited.csv', index=False)
