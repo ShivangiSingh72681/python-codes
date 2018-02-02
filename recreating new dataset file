@@ -1,0 +1,30 @@
+df_m = df[df['diagnosis'] == 'M'] #for particularly extracting M type of tumours
+df_m.head()$shows true booleand values
+
+#for boolean values true
+mask = df['diagnosis'] == 'M'
+df_m = df[mask]
+df_m
+
+#other feature of the dataset
+df_m['area'].describe()
+
+#other types of tumours
+df_b= df[df['diagnosis'] == 'B']
+df_b['area'].describe()
+
+#mean of tumour
+{0:.4f} while that of benign tumours is{1:.4f}.format(df_m['area'].mean(),df_b['area'].mean());
+
+#plotting both features in same graph
+import matplotlib.pyplot as plt
+% matplotlib inlint
+
+fig,ax = plt.subplots(figsize=(8, 6))
+ax.hist(df_b['area'], alpha=0.5, label='benign')
+ax.hist(df_m['area'], alpha=0.5, label='malignant')
+ax.set_title('Distributions of Benign and Malignant Tumor areas')
+ax.set_xlabel('Area')
+ax.set_ylabel('count')
+ax.legend(loc='upper right')
+plt.show()
