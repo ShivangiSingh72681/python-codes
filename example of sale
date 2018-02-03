@@ -1,0 +1,25 @@
+Using the grocery store dataset (store_data.csv), create plots with appropriate labeling, colors and size to communicate the results of the following questions.
+
+Which store has the highest total sales for the last month?
+Which store makes the most sales on average?
+Which store sells the most during the week of March 13th, 2016?
+Which store has the most sales in the latest 3-month period?
+
+SOLUTION
+# imports and load data
+import pandas as pd
+% matplotlib inline
+df = pd.read_csv('store_data.csv')
+df.head()
+# explore data
+df.tail(20)
+# sales for the last month
+df.iloc[196:,1:].sum().plot(kind='bar');
+# average sales
+df.mean().plot(kind='pie');
+# sales for the week of March 13th, 2016
+sales = df[df['week'] == '2016-03-13']
+sales.iloc[0,1:].plot(kind='bar')
+# sales for the lastest 3-month periods
+last_three_months = df[df['week'] == '2017-12-1']
+last_three_months.iloc[:,1:].sum().plot(kind='pi
