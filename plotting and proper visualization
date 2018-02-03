@@ -1,0 +1,16 @@
+import pandas as pd
+% matplotlib inline
+
+df_census = pd.read_csv('census_income_data.csv')
+df_a = df_census[df_census['income'] == '>50k']
+df_b = df_census[df_census['income'] == '<=50k']
+
+df_a['education'].value_counts().plot(kind='bar'); #value_counts return order by size so x axis is not properly ditributed for clear comparison
+OR
+#using both value with same index
+ind = df_a['education'].value_counts()[ind].plot(kind='bar');
+ind = df_b['education'].value_counts()[ind].plot(kind='bar');
+#use pie chart for workclass and histogram for age distribution
+df_a['age'].describe()
+df_b['age'].describe()
+
