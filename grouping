@@ -1,0 +1,6 @@
+wine_df.groupby('quality').mean() -- grouping mean by quality
+
+#grouping for more variables 
+wine_df.groupby(['quality','color],as_index=False).mean()--indexing true for indexed acc to list
+#indexing only for ph then
+wine_df.groupby(['quality','color],as_index=False['ph']).mean()
