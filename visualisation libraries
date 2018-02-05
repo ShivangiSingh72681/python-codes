@@ -1,0 +1,40 @@
+import pandas as pd
+import matplotlib.pylot as plt
+import seaborn as sns
+% matplotlib inline
+wine_df = pd.read_csv('wineequality_edited.csv')
+wine_df.head()
+
+#plotting
+colors = ['red','white']
+color_means = wine_df.groupby('color')['quality'].mean().plot(kind='bar', title= ' average wine quality and colors')
+plt.xlabel('color',fontsize=18)
+plt.ylabel('Quality',fontsize=18)
+
+
+#more value specific visuals
+counts = wine_df.groupby(['quality', 'color']).count()
+plt.xlabel('Quality and color', fontsize=18)
+plt.ylabel('count', fontsize=18)
+
+#more clear visuals using proportions
+totals = wine_df.groupby('color.count()['ph']
+proportions = counts / totals
+proportions.plot(kind='bar' , title='proportion by wine color and quality',color=colors)
+plt.xlabel('Quality and color', fontsize=18)
+plt.ylabel('count', fontsize=18)
+
+#customizing more to get even 0 values in bar graph
+plt.bar([1, 2, 3], [224, 620, 425]); --There are two required arguments in pyplot's bar function: the x-coordinates of the bars, and the heights of the bars.
+# plot bars
+plt.bar([1, 2, 3], [224, 620, 425])
+
+# specify x coordinates of tick labels and their labels
+plt.xticks([1, 2, 3], ['a', 'b', 'c']);
+
+# plot bars with x tick labels
+plt.bar([1, 2, 3], [224, 620, 425], tick_label=['a', 'b', 'c']);
+plt.bar([1, 2, 3], [224, 620, 425], tick_label=['a', 'b', 'c'])
+plt.title('Some Title')
+plt.xlabel('Some X Label')
+plt.ylabel('Some Y Label');
