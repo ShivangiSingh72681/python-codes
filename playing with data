@@ -1,0 +1,6 @@
+# view dimensions of dataset
+df_08.shape
+
+# filter datasets for rows following California standards
+df_08 = df_08.query('cert_region'== CA')
+df_18 = df_18.query('cert_region'== CA')
