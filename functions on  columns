@@ -12,5 +12,16 @@ df_08.rename(columns=lambda x: x.strip().lower().replace(" ", "_"), inplace=True
 # confirm changes
 df_08.head(1)
 
+
+# confirm column labels for 2008 and 2018 datasets are identical
+    df_08.columns == df_18.columns
+    
+# make sure they're all identical like this
+(df_08.columns == df_18.columns).all()
+
+#saving data to new section
+df_08.to_csv('data_08.csv', index=False)
+df_18.to_csv('data_18.csv', index=False)
+
     
     
