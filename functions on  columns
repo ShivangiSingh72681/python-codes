@@ -1,0 +1,11 @@
+# rename Sales Area to Cert Region
+    "df_08.rename(columns={'Sales Area': 'Cert Region'}, inplace=True)
+    
+#droping  columns
+df_18.drop(['Stnd', 'Stnd Description', 'Underhood ID', 'Comb CO2'], axis=1, inplace=True)
+    "# confirm changes
+    df_18.head(1)
+
+
+    
+    
