@@ -1,0 +1,25 @@
+# view missing value count for each feature in 2008
+    df_08.isnull().sum()
+    
+ # drop rows with any null values in both datasets
+    df_08.dropna(inplace=True)
+    df_18.dropna(inplace=True)
+    
+   # checks if any of columns in 2008 have null values - should print False
+    df_08.isnull().sum().any()
+    
+    # print number of duplicates in 2008 and 2018 datasets
+    print(df_08.duplicated().sum())
+    print(df_18.duplicated().sum())
+    
+    # drop duplicates in both datasets
+    df_08.drop_duplicates(inplace=True)
+    df_18.drop_duplicates(inplace=True)
+    
+    # print number of duplicates again to confirm dedupe - should both be 
+    print(df_08.duplicated().sum())
+    print(df_18.duplicated().sum())
+    
+    # save progress for the next section
+    df_08.to_csv('data_08.csv', index=False)
+    df_18.to_csv('data_18.csv', index=False)
