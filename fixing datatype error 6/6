@@ -1,0 +1,36 @@
+# First, let's get all the hybrids in 2008---> the / will separate the two types of fuel by a / sign within the fuel column
+hb_08 = df_08[df_08['fuel'].str.contains('/')]
+hb_08
+#separating the two sets of hybrid datasets
+df1 = hb_08.copy()  # data on first fuel type of each hybrid vehicle
+df2 = hb_08.copy()  # data on second fuel type of each hybrid vehicle
+
+# Each one should look like this
+df1
+
+# columns to split by "/"
+split_columns = ['fuel', 'air_pollution_score', 'city_mpg', 'hwy_mpg', 'cmb_mpg', 'greenhouse_gas_score']
+
+# apply split function to each column of each dataframe copy
+for c in split_columns:
+    df1[c] = df1[c].apply(lambda x: x.split("/")[0])
+    df2[c] = df2[c].apply(lambda x: x.split("/")[1])
+    
+  # combine the separated dataframes to add to the original dataframe making 2 separated one into single
+new_rows = df1.append(df2)
+
+# now we have separate rows for each fuel type of each vehicle!
+new_rows
+
+
+# drop the original hybrid rows
+df_08.drop(hb_08.index, inplace=True)
+
+# add in our newly separated rows
+df_08 = df_08.append(new_rows, ignore_index=True)
+
+# check that all the original hybrid rows with "/"s are gone
+df_08[df_08['fuel'].str.contains('/')]
+
+# convert int to float for 2018 air pollution column--->now conversion works here
+df_18.air_pollution_score = df_18.air_pollution_score.astype(float)
