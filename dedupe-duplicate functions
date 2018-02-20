@@ -1,0 +1,12 @@
+# print number of duplicates in 2008 and 2018 datasets
+print(df_08.duplicated().sum())
+print(df_18.duplicated().sum())
+
+# drop duplicates in both datasets
+df_08.drop_duplicates(inplace=True)
+df_18.drop_duplicates(inplace=True)
+
+# print number of duplicates again to confirm dedupe - should both be 0
+print(df_08.duplicated().sum())
+print(df_18.duplicated().sum())
+
