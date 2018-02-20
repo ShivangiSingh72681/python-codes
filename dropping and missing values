@@ -1,0 +1,14 @@
+#to find total missing values count in df_18
+df_18.isnull().sum()
+
+# drop certification region columns form both datasets
+df_08.drop('cert_region', axis=1, inplace=True)
+df_18.drop('cert_region', axis=1, inplace=True)
+
+# drop rows with any null values in both datasets
+df_08.dropna(inplace=True)
+df_18.dropna(inplace=True)
+
+# checks if any of columns in 2008 have null values - should print False
+df_08.isnull().sum().any()
+
