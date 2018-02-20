@@ -1,0 +1,3 @@
+# save progress for the next section
+df_08.to_csv('data_08.csv', index=False)
+df_18.to_csv('data_18.csv', index=False)
