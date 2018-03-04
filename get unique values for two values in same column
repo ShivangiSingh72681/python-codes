@@ -19,3 +19,12 @@ for _ in range[10000]:
     diffs.append(experiment_ctr - control_ctr)
     plt.hist(diffs)
     
+    #printing the diffs for p test
+    diffs = np.array(diffs)
+    null_vals = np.random.normal(0, diffs.std(), diffs.size())
+    plt.hist(null_val); 
+    
+    plt.hist(null_val);
+    plt.axvline(x=obs_diff, color='red');
+    
+    (null_val > obs_diff).mean()
