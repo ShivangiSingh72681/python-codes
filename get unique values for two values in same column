@@ -1,0 +1,21 @@
+#find the unique users from two types of users v=control and experimental
+control_df = df.query['group == "control"']
+control_ctr = control_df.query['action == "click"'].id.unique() / control_df.query['action == "view"'].id.unique()
+control_ctr
+
+experimental_df = experimental_df = df.query['group == "experimental"']
+experimental_ctr = experimental_df.query['action == "click"'].id.unique() / experimental_df.query['action == "view"'].id.unique()
+experimental_ctr
+
+
+#bootstrapping the values
+diffs = []
+for _ in range[10000]:
+    b_samp = df.sample(df.shape[0], replace = True)
+    control_df = b_samp.query('group == "control"')
+    experiment_df = b_samp.query('group == "experiment"')
+    control_ctr = control_df.query('action == "click"'].id.nunique() 
+    experimental_ctr = experimental_df.query['action == "click"'].id.nunique() / exper
+    diffs.append(experiment_ctr - control_ctr)
+    plt.hist(diffs)
+    
